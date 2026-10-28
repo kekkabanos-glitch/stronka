@@ -1,0 +1,21 @@
+{
+  "name": "logarytmika",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "check": "astro check",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/tailwind": "^6.0.2",
+    "@astrojs/vue": "^5.0.0",
+    "astro": "^5.0.0",
+    "astro-compress": "^2.4.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.3",
+    "vue": "^3.5.0"
+  }
+}
