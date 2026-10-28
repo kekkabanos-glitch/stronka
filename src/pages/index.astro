@@ -1,0 +1,228 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import HeroSearch from "../components/HeroSearch.astro";
+import TaskCard from "../components/TaskCard.vue";
+import TrustSection from "../components/TrustSection.astro";
+import SubjectsSection from "../components/SubjectsSection.astro";
+import FooterCTA from "../components/FooterCTA.astro";
+
+const tasks = [
+  {
+    exam: "INF.04",
+    date: "CZE 2026",
+    taskNumber: "1",
+    title: "Implementacja algorytmu sortowania bąbelkowego",
+    topic: "Algorytmy · Python · Złożoność O(n²)",
+    difficulty: "średnie" as const,
+    language: "python" as const,
+    code: `def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+
+# Przykład użycia
+dane = [64, 34, 25, 12, 22, 11, 90]
+posortowane = bubble_sort(dane)
+print(posortowane)  # [11, 12, 22, 25, 34, 64, 90]`,
+    steps: [
+      'Definiujemy funkcję <code class="font-mono text-blue-600">bubble_sort</code>, która przyjmuje listę <code class="font-mono text-blue-600">arr</code> jako argument.',
+      'Zewnętrzna pętla <code class="font-mono text-blue-600">for i in range(n)</code> wykonuje się <code class="font-mono text-blue-600">n</code> razy, gdzie <code class="font-mono text-blue-600">n</code> to długość listy.',
+      'Wewnętrzna pętla porównuje sąsiadujące elementy. Zakres maleje o <code class="font-mono text-blue-600">i</code>, bo po każdej iteracji największy element "wypływa" na koniec.',
+      'Jeśli element po lewej jest większy, zamieniamy je miejscami: <code class="font-mono text-blue-600">arr[j], arr[j+1] = arr[j+1], arr[j]</code>.',
+      'Złożoność czasowa: O(n²) w najgorszym przypadku. Optymalizacja: dodać flagę <code class="font-mono text-blue-600">swapped</code> i przerwać, jeśli lista jest już posortowana.',
+    ],
+  },
+  {
+    exam: "INF.04",
+    date: "MAJ 2026",
+    taskNumber: "2",
+    title: "Rozwiązanie równania kwadratowego — program w C++",
+    topic: "C++ · Matematyka · Równania kwadratowe",
+    difficulty: "średnie" as const,
+    language: "cpp" as const,
+    code: `#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    double a, b, c;
+    cin >> a >> b >> c;
+
+    double delta = b * b - 4 * a * c;
+
+    if (delta > 0) {
+        double x1 = (-b - sqrt(delta)) / (2 * a);
+        double x2 = (-b + sqrt(delta)) / (2 * a);
+        cout << x1 << " " << x2 << endl;
+    } else if (delta == 0) {
+        double x = -b / (2 * a);
+        cout << x << endl;
+    } else {
+        cout << "Brak rozwiazan" << endl;
+    }
+    return 0;
+}`,
+    steps: [
+      'Odczytujemy współczynniki <code class="font-mono text-blue-600">a</code>, <code class="font-mono text-blue-600">b</code>, <code class="font-mono text-blue-600">c</code> równania <code class="font-mono text-blue-600">ax² + bx + c = 0</code>.',
+      'Obliczamy deltę: <code class="font-mono text-blue-600">Δ = b² − 4ac</code>.',
+      'Jeśli <code class="font-mono text-blue-600">Δ &gt; 0</code>: dwa pierwiastki, <code class="font-mono text-blue-600">x₁ = (−b − √Δ) / 2a</code> i <code class="font-mono text-blue-600">x₂ = (−b + √Δ) / 2a</code>.',
+      'Jeśli <code class="font-mono text-blue-600">Δ = 0</code>: jeden pierwiastek podwójny, <code class="font-mono text-blue-600">x = −b / 2a</code>.',
+      'Jeśli <code class="font-mono text-blue-600">Δ &lt; 0</code>: brak rozwiązań rzeczywistych.',
+    ],
+  },
+  {
+    exam: "Matura",
+    date: "MAJ 2025",
+    taskNumber: "4",
+    title: "Wyznaczanie dziedziny funkcji wymierno-kwadratowej",
+    topic: "Matematyka · Funkcje · Dziedzina",
+    difficulty: "łatwe" as const,
+    language: "python" as const,
+    code: `# f(x) = (x^2 - 4) / (x - 3)
+# Dziedzina: mianownik != 0
+
+def dziedzina_ulamkowa():
+    # Mianownik: x - 3 != 0
+    # Rozwiązanie: x != 3
+    return "D = R \\ {3}"
+
+wynik = dziedzina_ulamkowa()
+print(wynik)`,
+    steps: [
+      'Funkcja <code class="font-mono text-blue-600">f(x) = (x² − 4) / (x − 3)</code> jest funkcją wymierną — ułamkiem, w którym mianownik zawiera zmienną.',
+      'Dziedzina wymaga, aby mianownik był różny od zera: <code class="font-mono text-blue-600">x − 3 ≠ 0</code>.',
+      'Rozwiązujemy: <code class="font-mono text-blue-600">x ≠ 3</code>.',
+      'Licznik <code class="font-mono text-blue-600">x² − 4</code> jest określony dla wszystkich liczb rzeczywistych — nie ogranicza dziedziny.',
+      'Odpowiedź: <code class="font-mono text-blue-600">D = ℝ \\ &#123;3&#125;</code>.',
+    ],
+  },
+  {
+    exam: "INF.03",
+    date: "CZE 2026",
+    taskNumber: "3",
+    title: "Operacje na tablicy jednowymiarowej — wyszukiwanie max",
+    topic: "Python · Algorytmy · Tablice",
+    difficulty: "łatwe" as const,
+    language: "python" as const,
+    code: `def znajdz_maksimum(arr):
+    if not arr:
+        return None
+    maks = arr[0]
+    for i in range(1, len(arr)):
+        if arr[i] > maks:
+            maks = arr[i]
+    return maks
+
+dane = [3, 7, 2, 9, 1, 5]
+wynik = znajdz_maksimum(dane)
+print(f"Maksimum: {wynik}")  # Maksimum: 9`,
+    steps: [
+      'Sprawdzamy czy tablica nie jest pusta — zwracamy <code class="font-mono text-blue-600">None</code> jeśli tak.',
+      'Inicjalizujemy <code class="font-mono text-blue-600">maks</code> jako pierwszy element tablicy.',
+      'Iterujemy od drugiego elementu: <code class="font-mono text-blue-600">for i in range(1, len(arr))</code>.',
+      'Jeśli bieżący element jest większy niż <code class="font-mono text-blue-600">maks</code>, aktualizujemy <code class="font-mono text-blue-600">maks</code>.',
+      "Złożoność: O(n) — jedna pętla przez całą tablicę.",
+    ],
+  },
+  {
+    exam: "Matura",
+    date: "MAJ 2025",
+    taskNumber: "7",
+    title: "Ciąg arytmetyczny — wyznaczanie sumy n pierwszych wyrazów",
+    topic: "Matematyka · Ciągi · Szereg arytmetyczny",
+    difficulty: "trudne" as const,
+    language: "python" as const,
+    code: `# Ciąg arytmetyczny: a_n = a_1 + (n-1)*r
+# Suma n wyrazów: S_n = (a_1 + a_n) / 2 * n
+
+def suma_ciagu(a1, r, n):
+    an = a1 + (n - 1) * r
+    sn = (a1 + an) / 2 * n
+    return sn
+
+# a_1 = 3, r = 5, n = 20
+wynik = suma_ciagu(3, 5, 20)
+print(f"S_20 = {wynik}")  # S_20 = 1010.0`,
+    steps: [
+      'Wzór na n-ty wyraz ciągu arytmetycznego: <code class="font-mono text-blue-600">aₙ = a₁ + (n − 1) · r</code>.',
+      'Obliczamy <code class="font-mono text-blue-600">a₂₀ = 3 + 19 · 5 = 98</code>.',
+      'Wzór na sumę: <code class="font-mono text-blue-600">Sₙ = (a₁ + aₙ) / 2 · n</code>.',
+      'Podstawiamy: <code class="font-mono text-blue-600">S₂₀ = (3 + 98) / 2 · 20 = 1010</code>.',
+      'Odpowiedź: <code class="font-mono text-blue-600">S₂₀ = 1010</code>.',
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <Navbar />
+  <HeroSearch />
+
+  <!-- CKE Database — Tabular task list -->
+  <!--<section id="arkusze" class="border-b border-slate-200 bg-white">
+    <div class="container-prose py-16 lg:py-24">
+      <div class="mb-8 flex items-end justify-between">
+        <div>
+          <p class="section-label mb-3">Baza zadań CKE</p>
+          <h2
+            class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl"
+          >
+            Rozwiązania krok po kroku
+          </h2>
+        </div>
+        <div
+          class="hidden items-center gap-2 font-mono text-xs text-slate-500 sm:flex"
+        >
+          <span class="pill pill-exam">{tasks.length} zadań</span>
+          <span class="pill pill-exam">2025–2026</span>
+        </div>
+      </div>
+
+  <div class="overflow-hidden border border-slate-200 bg-white">
+    <div
+      class="hidden grid-cols-12 gap-4 border-b border-slate-200 bg-slate-50 px-4 py-2.5 font-mono text-[11px] uppercase tracking-wider text-slate-500 lg:grid lg:px-6"
+    >
+      <div class="col-span-3">Egzamin</div>
+      <div class="col-span-6">Zadanie</div>
+      <div class="col-span-3 text-right">Poziom · Akcja</div>
+    </div>
+
+    {
+      tasks.map((task) => (
+        <TaskCard
+          exam={task.exam}
+          date={task.date}
+          taskNumber={task.taskNumber}
+          title={task.title}
+          topic={task.topic}
+          difficulty={task.difficulty}
+          language={task.language}
+          code={task.code}
+          steps={task.steps}
+        />
+      ))
+    }
+  </div>
+
+  <div
+    class="mt-6 flex items-center justify-between font-mono text-xs text-slate-500"
+  >
+    <span>Aktualizacja: {new Date().toLocaleDateString("pl-PL")}</span>
+    <a
+      href="#baza-wiedzy"
+      class="text-blue-600 underline decoration-blue-600/30 underline-offset-4 transition-colors hover:decoration-blue-600"
+    >
+      → Zobacz wszystkie materiały
+    </a>
+  </div>
+</BaseLayout>
+-->
+
+  <!-- <TrustSection /> -->
+  <!-- <SubjectsSection /> -->
+  <FooterCTA />
+</BaseLayout>

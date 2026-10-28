@@ -1,0 +1,62 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Logarytmika.pl — Egzamin 8-klasisty, Matura i INF.03/INF.04",
+  description = "Egzamin 8-klasisty, Matura i INF.03/INF.04 rozbite na czynniki pierwsze. Rozwiązania zadań CKE krok po kroku oraz korepetycje matematyczne i informatyczne 1:1.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- HTTP Security Meta Tags -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content="Logarytmika.pl" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Fonts: Space Grotesk + JetBrains Mono + IBM Plex Serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@400;500;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="antialiased">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: light;
+  }
+</style>

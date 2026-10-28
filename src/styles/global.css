@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        @apply bg-white text-slate-900 font-sans;
+        font-feature-settings: "ss01", "cv01";
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply font-sans;
+        letter-spacing: -0.02em;
+    }
+
+    ::selection {
+        @apply bg-blue-600 text-white;
+    }
+}
+
+@layer components {
+    .container-prose {
+        @apply mx-auto max-w-7xl px-6 lg:px-10;
+    }
+
+    /* Grid pattern background */
+    .bg-grid {
+        background-image:
+            linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+            linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+        background-size: 4rem 4rem;
+    }
+
+    .bg-grid-dark {
+        background-image:
+            linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+        background-size: 3rem 3rem;
+    }
+
+    /* Buttons — sharp, no soft shadows */
+    .btn-primary {
+        @apply inline-flex items-center justify-center border border-slate-900 bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
+    }
+
+    .btn-accent {
+        @apply inline-flex items-center justify-center border border-blue-600 bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
+    }
+
+    .btn-outline {
+        @apply inline-flex items-center justify-center border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition-all hover:border-slate-900 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
+    }
+
+    .btn-ghost {
+        @apply inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-slate-900;
+    }
+
+    /* Monospace pill tags */
+    .pill {
+        @apply inline-flex items-center font-mono text-xs font-medium px-2 py-0.5 border;
+    }
+
+    .pill-inf {
+        @apply border-emerald-600/30 bg-emerald-50 text-emerald-600;
+    }
+
+    .pill-math {
+        @apply border-blue-600/30 bg-blue-50 text-blue-600;
+    }
+
+    .pill-exam {
+        @apply border-slate-300 bg-slate-100 text-slate-700;
+    }
+
+    .pill-dark {
+        @apply border-slate-700 bg-slate-800 text-slate-300;
+    }
+
+    /* Section labels — small caps style */
+    .section-label {
+        @apply font-mono text-xs font-medium uppercase tracking-widest text-slate-500;
+    }
+
+    /* Terminal / code styling */
+    .terminal {
+        @apply bg-slate-900 text-slate-100;
+    }
+
+    .terminal-header {
+        @apply flex items-center justify-between border-b border-slate-800 px-4 py-2.5;
+    }
+}

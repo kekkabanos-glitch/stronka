@@ -1,0 +1,391 @@
+---
+// TrustSection.astro — Asymmetric Bento Grid
+---
+
+<section id="korepetycje" class="relative border-b border-slate-200 bg-white">
+    <div class="pointer-events-none absolute inset-0 bg-grid opacity-30"></div>
+
+    <div class="container-prose relative py-16 lg:py-24">
+        <div class="mb-10 flex items-end justify-between">
+            <div>
+                <p class="section-label mb-3">Dlaczego Logarytmika.pl</p>
+                <h2
+                    class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl"
+                >
+                    Nie sprzedajemy obietnic.<br />
+                    <span class="font-serif italic font-normal text-slate-500"
+                        >Dajemy narzędzia i systematyczność.</span
+                    >
+                </h2>
+            </div>
+            <a
+                href="#cennik"
+                class="hidden font-mono text-xs text-blue-600 underline decoration-blue-600/30 underline-offset-4 transition-colors hover:decoration-blue-600 sm:block"
+            >
+                → Zobacz cennik
+            </a>
+        </div>
+
+        <!-- Bento Grid: 3 columns, asymmetric rows -->
+        <div
+            class="grid grid-cols-1 gap-px border border-slate-200 bg-slate-200 md:grid-cols-3"
+        >
+            <!-- Card 1: Large 2-column — Interactive Pass Rate Predictor -->
+            <div class="md:col-span-2 bg-white p-6 lg:p-8">
+                <div class="flex items-center gap-2">
+                    <span class="font-mono text-xs text-slate-400">01</span>
+                    <span class="section-label">Predyktor zdawalności CKE</span>
+                </div>
+
+                <h3 class="mt-4 text-lg font-semibold text-slate-900">
+                    Sprawdź swoje szanse
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                    Suwak reprezentuje Twój poziom przygotowania. Im wyżej, tym
+                    większe prawdopodobieństwo zdania egzaminu na wysokim
+                    wyniku.
+                </p>
+
+                <!-- Interactive slider -->
+                <div class="mt-6">
+                    <div
+                        class="flex items-center justify-between font-mono text-xs text-slate-500"
+                    >
+                        <span
+                            >Poziom: <span
+                                id="predictor-value"
+                                class="font-semibold text-slate-900">50%</span
+                            ></span
+                        >
+                        <span
+                            >Szansa zdania: <span
+                                id="predictor-result"
+                                class="font-semibold text-emerald-600">85%</span
+                            ></span
+                        >
+                    </div>
+                    <input
+                        id="predictor-slider"
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="50"
+                        class="mt-3 w-full accent-blue-600"
+                        aria-label="Poziom przygotowania"
+                    />
+                    <div
+                        class="mt-1 flex justify-between font-mono text-[10px] text-slate-400"
+                    >
+                        <span>Start</span>
+                        <span>Podstawa</span>
+                        <span>Średnio</span>
+                        <span>Dobrze</span>
+                        <span>Ekspert</span>
+                    </div>
+                </div>
+
+                <!-- Stats below slider -->
+                <div
+                    class="mt-6 grid grid-cols-3 gap-px border border-slate-200 bg-slate-200"
+                >
+                    <div class="bg-white px-3 py-2.5">
+                        <div class="font-mono text-sm font-bold text-slate-900">
+                            500+
+                        </div>
+                        <div class="text-[11px] text-slate-500">
+                            Rozwiązanych zadań
+                        </div>
+                    </div>
+                    <div class="bg-white px-3 py-2.5">
+                        <div class="font-mono text-sm font-bold text-slate-900">
+                            8 lat
+                        </div>
+                        <div class="text-[11px] text-slate-500">
+                            Doświadczenia
+                        </div>
+                    </div>
+                    <div class="bg-white px-3 py-2.5">
+                        <div
+                            class="font-mono text-sm font-bold text-emerald-600"
+                        >
+                            100%
+                        </div>
+                        <div class="text-[11px] text-slate-500">
+                            Strategii zdawalności
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Vertical — Tutor credentials with dark badge -->
+            <div class="bg-slate-900 p-6 text-slate-200 lg:p-8">
+                <div class="flex items-center gap-2">
+                    <span class="font-mono text-xs text-slate-500">02</span>
+                    <span
+                        class="font-mono text-xs uppercase tracking-widest text-slate-500"
+                        >Kwalifikacje</span
+                    >
+                </div>
+
+                <h3 class="mt-4 text-lg font-semibold text-white">
+                    Wykwalifikowany nauczyciel
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-400">
+                    Magister matematyki i informatyki. 8 lat w przygotowywaniu
+                    uczniów do egzaminów państwowych. Autorskie materiały i
+                    sprawdzone metody.
+                </p>
+
+                <!-- Dark badge: availability -->
+                <div
+                    class="mt-6 inline-flex items-center gap-2 border border-emerald-600/40 bg-emerald-600/10 px-3 py-1.5"
+                >
+                    <span
+                        class="h-2 w-2 rounded-full bg-emerald-600 animate-pulse"
+                    ></span>
+                    <span class="font-mono text-xs font-medium text-emerald-400"
+                        >Wolne terminy: Maj 2026</span
+                    >
+                </div>
+
+                <!-- Credentials list -->
+                <ul class="mt-6 space-y-2.5">
+                    <li
+                        class="flex items-center gap-2.5 font-mono text-xs text-slate-400"
+                    >
+                        <span class="text-emerald-600">✓</span> Magister matematyki
+                        UWr
+                    </li>
+                    <li
+                        class="flex items-center gap-2.5 font-mono text-xs text-slate-400"
+                    >
+                        <span class="text-emerald-600">✓</span> 8 lat doświadczenia
+                    </li>
+                    <li
+                        class="flex items-center gap-2.5 font-mono text-xs text-slate-400"
+                    >
+                        <span class="text-emerald-600">✓</span> Autorskie materiały
+                        CKE
+                    </li>
+                    <li
+                        class="flex items-center gap-2.5 font-mono text-xs text-slate-400"
+                    >
+                        <span class="text-emerald-600">✓</span> Nagrania każdej sesji
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card 3: 1:1 Virtual Classroom feature highlight -->
+            <div class="bg-white p-6 md:col-span-3 lg:p-8">
+                <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-mono text-xs text-slate-400"
+                                >03</span
+                            >
+                            <span class="section-label">Wirtualna sala 1:1</span
+                            >
+                        </div>
+                        <h3 class="mt-4 text-lg font-semibold text-slate-900">
+                            Dedykowana sala online
+                        </h3>
+                        <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                            Lekcje 1:1 z wspólnym edytorem kodu (Code-Server),
+                            tablicą matematyczną i komunikacją wideo WebRTC
+                            (LiveKit). Każda sesja nagrywana — wracaj do
+                            materiału, kiedy chcesz.
+                        </p>
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span class="pill pill-exam">Code-Server</span>
+                            <span class="pill pill-exam">LiveKit WebRTC</span>
+                            <span class="pill pill-exam"
+                                >Tablica matematyczna</span
+                            >
+                            <span class="pill pill-exam">Nagrania sesji</span>
+                        </div>
+                    </div>
+
+                    <!-- Mock classroom preview -->
+                    <div
+                        class="overflow-hidden rounded-md border border-slate-800 bg-slate-900"
+                    >
+                        <div class="terminal-header">
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="h-2.5 w-2.5 rounded-full bg-red-500/70"
+                                ></span>
+                                <span
+                                    class="h-2.5 w-2.5 rounded-full bg-amber-500/70"
+                                ></span>
+                                <span
+                                    class="h-2.5 w-2.5 rounded-full bg-emerald-500/70"
+                                ></span>
+                            </div>
+                            <div
+                                class="flex items-center gap-2 font-mono text-xs text-slate-500"
+                            >
+                                <span class="flex items-center gap-1">
+                                    <span
+                                        class="h-1.5 w-1.5 rounded-full bg-emerald-600"
+                                    ></span>
+                                    REC
+                                </span>
+                                <span>·</span>
+                                <span>1:1 Session</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-px bg-slate-800">
+                            <!-- Code editor side -->
+                            <div class="bg-slate-900 p-3">
+                                <div
+                                    class="font-mono text-[11px] text-slate-600 mb-2"
+                                >
+                                    editor.py
+                                </div>
+                                <div
+                                    class="space-y-1 font-mono text-[11px] leading-relaxed"
+                                >
+                                    <div>
+                                        <span class="text-slate-600 mr-2"
+                                            >1</span
+                                        ><span class="text-blue-400">def</span>
+                                        <span class="text-slate-100"
+                                            >solve(a, b, c):</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-slate-600 mr-2"
+                                            >2</span
+                                        >
+                                        <span class="text-slate-400"
+                                            >delta = b**2 -
+                                        </span><span class="text-amber-400"
+                                            >4</span
+                                        ><span class="text-slate-400"
+                                            >*a*c</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-slate-600 mr-2"
+                                            >3</span
+                                        >
+                                        <span class="text-blue-400">if</span>
+                                        <span class="text-slate-400"
+                                            >delta >
+                                        </span><span class="text-amber-400"
+                                            >0</span
+                                        ><span class="text-slate-400">:</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-slate-600 mr-2"
+                                            >4</span
+                                        >
+                                        <span class="text-slate-400"
+                                            >x1 = (-b - delta**</span
+                                        ><span class="text-amber-400">0.5</span
+                                        ><span class="text-slate-400">)/(</span
+                                        ><span class="text-amber-400">2</span
+                                        ><span class="text-slate-400">*a)</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-slate-600 mr-2"
+                                            >5</span
+                                        >
+                                        <span class="text-blue-400">return</span
+                                        >
+                                        <span class="text-slate-400"
+                                            >x1, x2</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-slate-600 mr-2"
+                                            >6</span
+                                        >
+                                        <span class="text-blue-400">elif</span>
+                                        <span class="text-slate-400"
+                                            >delta ==
+                                        </span><span class="text-amber-400"
+                                            >0</span
+                                        ><span class="text-slate-400">:</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-slate-600 mr-2"
+                                            >7</span
+                                        >
+                                        <span class="text-blue-400">return</span
+                                        >
+                                        <span class="text-slate-400">-b/(</span
+                                        ><span class="text-amber-400">2</span
+                                        ><span class="text-slate-400">*a)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Video call side -->
+                            <div
+                                class="flex flex-col items-center justify-center bg-slate-950 p-3"
+                            >
+                                <div
+                                    class="flex h-16 w-16 items-center justify-center rounded-md border border-slate-700 bg-slate-800"
+                                >
+                                    <svg
+                                        class="h-7 w-7 text-slate-500"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <span
+                                    class="mt-2 font-mono text-[10px] text-slate-500"
+                                    >LiveKit · 1080p</span
+                                >
+                                <div class="mt-2 flex gap-1.5">
+                                    <span
+                                        class="h-1.5 w-1.5 rounded-full bg-emerald-600"
+                                    ></span>
+                                    <span
+                                        class="h-1.5 w-1.5 rounded-full bg-emerald-600"
+                                    ></span>
+                                    <span
+                                        class="h-1.5 w-1.5 rounded-full bg-red-500/50"
+                                    ></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const slider = document.getElementById(
+        "predictor-slider",
+    ) as HTMLInputElement | null;
+    const valueDisplay = document.getElementById("predictor-value");
+    const resultDisplay = document.getElementById("predictor-result");
+
+    function updatePredictor() {
+        if (!slider) return;
+        const val = parseInt(slider.value);
+        if (valueDisplay) valueDisplay.textContent = `${val}%`;
+        // Simple curve: chance = 35 + val * 0.65, capped at 99
+        const chance = Math.min(99, Math.round(35 + val * 0.65));
+        if (resultDisplay) {
+            resultDisplay.textContent = `${chance}%`;
+            if (chance >= 80) {
+                resultDisplay.className = "font-semibold text-emerald-600";
+            } else if (chance >= 60) {
+                resultDisplay.className = "font-semibold text-amber-600";
+            } else {
+                resultDisplay.className = "font-semibold text-red-600";
+            }
+        }
+    }
+
+    slider?.addEventListener("input", updatePredictor);
+</script>

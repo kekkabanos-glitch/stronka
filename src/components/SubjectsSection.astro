@@ -1,0 +1,71 @@
+---
+// SubjectsSection.astro — Dense, tabular subject listing
+const subjects = [
+  { name: 'Egzamin 8-klasisty', tag: 'MATH', topic: 'Pełna podstawa kl. 8 · zadania otwarte i zamknięte CKE', count: '120 zadań', color: 'math' },
+  { name: 'Matura — Poziom Podstawowy', tag: 'MATH', topic: 'Rozwiązania matury PP · schematy punktowania CKE', count: '95 zadań', color: 'math' },
+  { name: 'Matura — Poziom Rozszerzony', tag: 'MATH', topic: 'Ciągi · kombinatoryka · analiza · geometria analityczna', count: '87 zadań', color: 'math' },
+  { name: 'INF.03 — Programowanie', tag: 'INF', topic: 'Strony WWW · bazy danych · algorytmy podstawowe', count: '64 zadań', color: 'inf' },
+  { name: 'INF.04 — Programowanie', tag: 'INF', topic: 'Python · C++ · algorytmy zaawansowane · struktury danych', count: '78 zadań', color: 'inf' },
+  { name: 'Korepetycje 1:1', tag: '1:1', topic: 'Elastyczne terminy · dedykowany plan · edytor kodu online', count: 'Indywidualne', color: 'exam' },
+];
+---
+
+<section id="baza-wiedzy" class="border-b border-slate-200 bg-slate-50">
+  <div class="container-prose py-16 lg:py-24">
+    <div class="mb-10 flex items-end justify-between">
+      <div>
+        <p class="section-label mb-3">Zakres materiałów</p>
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Kompleksowe przygotowanie<br />
+          <span class="font-serif italic font-normal text-slate-500">do każdego egzaminu.</span>
+        </h2>
+      </div>
+    </div>
+
+    <!-- Dense tabular listing -->
+    <div class="overflow-hidden border border-slate-200 bg-white">
+      <!-- Table header -->
+      <div class="hidden grid-cols-12 gap-4 border-b border-slate-200 bg-slate-50 px-4 py-2.5 font-mono text-[11px] uppercase tracking-wider text-slate-500 sm:grid lg:px-6">
+        <div class="col-span-2">Typ</div>
+        <div class="col-span-6">Przedmiot</div>
+        <div class="col-span-2">Zakres</div>
+        <div class="col-span-2 text-right">Dostęp</div>
+      </div>
+
+      {subjects.map((subject, i) => (
+        <a
+          href="#arkusze"
+          class="group grid grid-cols-12 items-center gap-4 border-b border-slate-200 px-4 py-4 transition-colors last:border-b-0 hover:bg-slate-50 lg:px-6"
+        >
+          <!-- Tag -->
+          <div class="col-span-12 sm:col-span-2">
+            <span class={subject.color === 'inf' ? 'pill pill-inf' : subject.color === 'math' ? 'pill pill-math' : 'pill pill-exam'}>
+              {subject.tag}
+            </span>
+          </div>
+          <!-- Name + topic -->
+          <div class="col-span-12 sm:col-span-6">
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-xs text-slate-400">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="text-sm font-semibold text-slate-900 group-hover:text-blue-600">{subject.name}</h3>
+            </div>
+            <p class="mt-1 pl-6 font-mono text-xs text-slate-500">{subject.topic}</p>
+          </div>
+          <!-- Count -->
+          <div class="col-span-6 font-mono text-xs text-slate-600 sm:col-span-2">
+            {subject.count}
+          </div>
+          <!-- Arrow -->
+          <div class="col-span-6 flex justify-end sm:col-span-2">
+            <span class="flex items-center gap-1 font-mono text-xs text-slate-400 transition-colors group-hover:text-slate-900">
+              Otwórz
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
